@@ -38,6 +38,7 @@ Runs as a background process that requires no interaction with a user. Typically
 
 
 # Chapter 3: Transportation layer
+[[
 **UDP:** multiplexing/demultiplexing
 
 # Chapter 4: Network Layer
@@ -69,7 +70,21 @@ If the query is full we must drop a packet
 **Interface:** Boundary between host and physical link
 * IP addresses are associated with routers' interfaces; typically a router will have multiple IP addresses
  
-**Dotted Decimal Notation:** The format IP addresses use. Each byte of the address is written in its decimal form and is separarted by a period (dot) from the other bytes. *Example: 193.32.216.9* 
+**Dotted Decimal Notation:** The format IP addresses use. Each byte of the address is written in its decimal form and is separarted by a period (dot) from the other bytes. 
+* *Example: 193.32.216.9*
+
+* The binary notation is 11000001 00100000 11011000 00001001
+
+### Subnet
+
+**Subnet:** A part of a larger network.
+
+IP addressing assigns an address block to subnets, such as 223.1.1.0/24
+
+**Subnet Mask:** "/24" of 223.1.1.0/24 is a subnet mask. It indicates the leftmost bits of the 32 bit address that identify. Thus the last 24 bits of 223.1.1.0/24 are addressable by the subnet.
+
+
+
  
  
  
