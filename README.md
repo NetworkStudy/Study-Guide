@@ -57,6 +57,25 @@ Runs as a background process that requires no interaction with a user. Typically
 
 **UDP:** multiplexing/demultiplexing
 
+## Reliable Data Transfer Protocol
+
+### Go-Back-N (GBN):
+
+**GBN Protocol:** The sender is allowed to transmit multiple packets with out waiting for an ACK but is limited to sending no more then N max unAcked packets. 
+
+**Sliding-window Protocol:** GBN is called such as the window slides over the sequence number space. 
+
+![Sender Go Back N Image](http://www.linyibin.cn/images/Technology-ComputerNetworking-Internet-GBN-Window.png)
+
+* *base:* Sequence Number of oldest unAcked packet
+* *nextseqnum:* Smallest unused sequence number, i.e. sequence number of next packet to be sent
+* *Window Size* or *N:* Range of permissible sequence numbers for unAcked packets
+
+In practice the range can be determined from the sequence number in the packet's header. If *k* is the number of bits of the sequence number then [0, 2ᵏ - 1] is the range of sequence numbers. That is the the next sequence number after 2ᵏ - 1 will be 0. 
+
+
+![](http://www.myreadingroom.co.in/images/stories/docs/dcn/gobackn%20automatic%20repeat%20request.JPG)
+
 # Chapter 4: Network Layer
 **forwarding:** Maps packet from input link to output link using forwarding table
 
