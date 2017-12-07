@@ -108,6 +108,23 @@ In practice the range can be determined from the sequence number in the packet's
 
 
 # Chapter 4: Network Layer
+
+## Router
+![](https://electronicspost.com/wp-content/uploads/2016/05/4.6.png)
+* *Input Port:* Terminates incoming physical link, performs link layer functions, perform lookup function
+* *Switching Fabric:* Connects input ports to the output ports
+* *Output Ports:* Stores packets recieved from switching fabric and transmits them to outgoing link. Performs link-layer and physical-layer functions 
+
+## Switch Fabric
+![](http://sirbonbac.com/images/Computer_Networking/Switching_Techniques.PNG)
+
+*Switching via Memory:* Done using a traditional computer CPU. Input and output ports were functioned as I/O devices in an OS. Incoming packets signaled the routing processor via an interrupt. Each packet must be written into and read from memory, meaning only one packet can be forwarded at a time. 
+
+*Switching via a Bus:* Input ports foward the packets without the routing processor. This is done by the input port pre-pepending a label onto the packet. All outgoing packets receive the packet but only the one with the matching label keeps it. The outgoing port removes the label. Only one packet can cross the bus at once.
+
+*Switching via an Interconnection Network:* 
+
+
 **forwarding:** Maps packet from input link to output link using forwarding table
 
 **routing:** determines path from sender to receiver. They make the forwarding table
