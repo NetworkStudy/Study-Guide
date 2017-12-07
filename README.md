@@ -35,8 +35,9 @@ Runs as a background process that requires no interaction with a user. Typically
 4. Change working directory
 5. Change file mask mode (umask(0))
 
-# Chapter 3: Transportation layer
 
+
+# Chapter 3: Transportation layer
 **UDP:** multiplexing/demultiplexing
 
 # Chapter 4: Network Layer
@@ -62,6 +63,13 @@ If the query is full we must drop a packet
 * Used in Active Queue Managment
 
 **Head of line blocking:** A packets output port is open but the packet in front is waiting
+
+## Addressing 
+
+**Interface:** Boundary between host and physical link
+* IP addresses are associated with routers' interfaces; typically a router will have multiple IP addresses
+ 
+**Dotted Decimal Notation:** The format IP addresses use. Each byte of the address is written in its decimal form and is separarted by a period (dot) from the other bytes. *Example: 193.32.216.9* 
  
  
  
