@@ -27,9 +27,10 @@ While True:
 Runs as a background process that requires no interaction with a user. Typically it will not have an associated terminal. 
 
 **Steps:**
-1. fork from parent process
+1. Ignore terminal stop signals
+1. fork from parent process and exit parent
 2. Disassociate from controlling terminal and process group
-3. Close standard file descriptors
+3. Close standard file descriptors (stderr, stdin, stdout, ...)
 4. Change working directory
 5. Change file mask mode (umask(0))
 
@@ -100,6 +101,17 @@ It is possible for an orginization to contain additional subnets
 
 **Obtaining a block of addresses:** An orginization contacts its ISP to obtain the block of addresses. The ISP provides the addresses from a larger block of addresses allocated to it. The ISPs obtain their address block from the *Internet Corporation for Assigned Names and Numbers (ICANN)*. ICANN also manages the root DNS servers, assigns domain names, and settle domain name disputes. 
 
+#### Obtaining a host address:
+Assigning IP address can be done manually by a System Administrator or 
+
+**Dynamic Host Configuration (DHCP)** can automatically assigns IP addresses to hosts.
+
+**_Steps to connect to DHCP:_**
+
+1. Host sends a *DHCP discover message* to the **broadcast address**
+2. Server sends a *DHCP offer message* to the **broadcast address**
+3. Host accepts a one of possible multiple offers and sends a *DHCP request message* to chosen server
+4. Server confirms with a *DHCP ACK message* and assigns the IP address
 
  
  
