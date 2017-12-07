@@ -61,20 +61,51 @@ Runs as a background process that requires no interaction with a user. Typically
 
 ### Go-Back-N (GBN):
 
-**GBN Protocol:** The sender is allowed to transmit multiple packets with out waiting for an ACK but is limited to sending no more then N max unAcked packets. 
+**GBN Protocol:** The sender is allowed to transmit multiple packets with out waiting for an ACK but is limited to sending no more then N max unACK'd packets. 
 
 **Sliding-window Protocol:** GBN is called such as the window slides over the sequence number space. 
 
 ![Sender Go Back N Image](http://www.linyibin.cn/images/Technology-ComputerNetworking-Internet-GBN-Window.png)
 
-* *base:* Sequence Number of oldest unAcked packet
+* *base:* Sequence Number of oldest unACK'd packet
 * *nextseqnum:* Smallest unused sequence number, i.e. sequence number of next packet to be sent
-* *Window Size* or *N:* Range of permissible sequence numbers for unAcked packets
+* *Window Size* or *N:* Range of permissible sequence numbers for unACK'd packets
 
 In practice the range can be determined from the sequence number in the packet's header. If *k* is the number of bits of the sequence number then [0, 2ᵏ - 1] is the range of sequence numbers. That is the the next sequence number after 2ᵏ - 1 will be 0. 
 
 
 ![](http://www.myreadingroom.co.in/images/stories/docs/dcn/gobackn%20automatic%20repeat%20request.JPG)
+
+![](https://astro.temple.edu/~stafford/cis320f05/lecture/chap3/gifs/kurose_320719_c03f22.gif)
+
+### Selective Repeat:
+
+![](https://astro.temple.edu/~stafford/cis320f05/lecture/chap3/deluxe-content_files/03-22.jpe)
+
+![](http://www.networkinginfoblog.com/contentsimages/SR%20operation.JPG)
+
+### Go-Back-N vs. Selective Repeat
+#### Go-Back-N
+* Retransmits all the frames sent after a lost or corrupted frame
+* Window size is N-1
+* Sorting is not required by sender or receiver
+	* If a packet is recieved out of order all packets after last ACK'd are resent
+* Receiver does not store out of order packets
+* Iteration of frames not required
+* NAK number is next expected frame
+* Less complex and cheaper
+
+#### Selective Repeat
+* Retransmits only those frames that are suspected to lost or corrupted
+* Window size is <= (N+1)/2
+	* If the window size is too large we do not know if a packet is new or a retransmittion 
+* Receiver must be able to sort as it has to maintain the sequence of the frames
+* Receiver stores the frames received after a corrupted frame in the buffer
+* The sender must be able to search and select only the requested frame
+* NAK number refer to the frame lost
+* Complex and costly
+
+
 
 # Chapter 4: Network Layer
 **forwarding:** Maps packet from input link to output link using forwarding table
