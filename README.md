@@ -38,6 +38,7 @@ Runs as a background process that requires no interaction with a user. Typically
 
 
 # Chapter 3: Transportation layer
+
 **UDP:** multiplexing/demultiplexing
 
 # Chapter 4: Network Layer
@@ -87,6 +88,18 @@ Subnets refer not just to the connection of computers to router but can also be 
 ![Network Image](http://www.networkinginfoblog.com/contentsimages/Three%20routers%20interconnecting%20six%20subnets.JPG)
 
 **Classless Interdomain Routing (CIDR):** The internet's address assignment strategy  
+
+**Prefix:** The first x bits of the a.b.c.d/x address (subnet address)
+* IP address of devices within an orginization will share a common prefix 
+* Only the prefix will be considered by routers outside the orginization
+* The remaining bits will be considered when forwarding packets *within* an organization
+
+It is possible for an orginization to contain additional subnets
+
+**Classful addressing** was problematic because it required subnet masks to be 8, 16, or 24 bits in length. These were refered to classes A, B, and C respectively. Class A supported up to 254 hosts, while the next-up class B supported up to 65,534 hosts. Class A may be too small and class B too big, effectively wasting IP addresses. 
+
+**Broadcast Address:** The IP address 255.255.255.255. Packets sent to this destination are forwarded to all hosts on the same subnet.
+
 
  
  
