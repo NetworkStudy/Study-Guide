@@ -3,25 +3,23 @@
 
 ```python
 # create socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# re-use the port
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # bind socket to host and port
-sock.bind((host, port))
+serverSocket.bind((host, port))
 # Start listening
-sock.listen(5)
+serverSocket.listen(numOfConnections)
 While True:
 	# accept connection
-	conn, address = sock.accept()
+	clientSocket, address = sock.accept()
 	# fork child
 	pid = os.fork()
 	# child
 	if pid == 0:
-		sock.close()
-		handle(conn)
+		serverSocket.close()
+		handle(clientSocket)
 	# parent
 	else:
-		conn.close
+		clientSocket.close()
 ```
  
  # Steps to create a Daemon:
