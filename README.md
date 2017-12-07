@@ -100,6 +100,8 @@ It is possible for an orginization to contain additional subnets
 
 **Broadcast Address:** The IP address 255.255.255.255. Packets sent to this destination are forwarded to all hosts on the same subnet.
 
+**Obtaining a block of addresses:** An orginization contacts its ISP to obtain the block of addresses. The ISP provides the addresses from a larger block of addresses allocated to it. The ISPs obtain their address block from the *Internet Corporation for Assigned Names and Numbers (ICANN)*. ICANN also manages the root DNS servers, assigns domain names, and settle domain name disputes. 
+
 
  
  
