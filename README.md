@@ -34,6 +34,23 @@ Runs as a background process that requires no interaction with a user. Typically
 4. Change working directory
 5. Change file mask mode (umask(0))
 
+# Virtual Circuit vs. Datagram circuit:
+**Virtual circuit:** Appears as though there is a dedicated physical layer link between the source and destination end systems.
+* Virtual circuit communication resembles circuit switching because it is connection-oriented
+* All packets follow same path.
+* Resources (buffers, CPU, bandwidth, ect.) reserved for duration of connection. 
+* First sent packet reserves resources and configurs network for following packets.
+* Packets are recieved in order.
+* Reliable but costly.
+
+**Datagram circuit:** The normal method of the internet. There is no dedicated connection between the host processes. 
+* Connectionless.
+* Packets may follow diffrent paths.
+* No resources are reserved.
+* All packets must have headers with configuration information.
+* Packets may be received out of order.
+* Not as reliable but more cost-efficient. 
+
 
 
 # Chapter 3: Transportation layer
@@ -113,7 +130,7 @@ Assigning IP address can be done manually by a System Administrator or
 3. Host accepts a one of possible multiple offers and sends a *DHCP request message* to chosen server
 4. Server confirms with a *DHCP ACK message* and assigns the IP address
 
- 
+
  
  
  
