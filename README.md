@@ -30,10 +30,10 @@ Runs as a background process that requires no interaction with a user. Typically
 
 **Steps:**
 1. fork from parent process
-2. Change file mask mode (umask(0))
-3. Create new session id
+2. Disassociate from controlling terminal and process group
+3. Close standard file descriptors
 4. Change working directory
-5. Close standard file descriptors
+5. Change file mask mode (umask(0))
 
 # Chapter 3: Transportation layer
 
