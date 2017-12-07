@@ -38,7 +38,6 @@ Runs as a background process that requires no interaction with a user. Typically
 
 
 # Chapter 3: Transportation layer
-
 **UDP:** multiplexing/demultiplexing
 
 # Chapter 4: Network Layer
@@ -83,7 +82,11 @@ IP addressing assigns an address block to subnets, such as 223.1.1.0/24
 
 **Subnet Mask:** "/24" of 223.1.1.0/24 is a subnet mask. It indicates the leftmost bits of the 32 bit address that identify. Thus the last 24 bits of 223.1.1.0/24 are addressable by the subnet.
 
+Subnets refer not just to the connection of computers to router but can also be applied in differnt instances, such as between routers. Below the interfaces that connect R1 & R2, R1 & R3, and R2 & R3 are subnets.
 
+![Network Image](http://www.networkinginfoblog.com/contentsimages/Three%20routers%20interconnecting%20six%20subnets.JPG)
+
+**Classless Interdomain Routing (CIDR):** The internet's address assignment strategy  
 
  
  
