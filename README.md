@@ -38,7 +38,7 @@ Runs as a background process that requires no interaction with a user. Typically
 
 
 # Chapter 3: Transportation layer
-[[
+
 **UDP:** multiplexing/demultiplexing
 
 # Chapter 4: Network Layer
