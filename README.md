@@ -196,8 +196,27 @@ Assigning IP address can be done manually by a System Administrator or
 3. Host accepts a one of possible multiple offers and sends a *DHCP request message* to chosen server
 4. Server confirms with a *DHCP ACK message* and assigns the IP address
 
+# Chapter 5
 
+## Link-State (LS) Routing Algorithm
+
+This algorthim is a **centralized routing algorthim**, meaning it requires complete knowledge about the network.
+
+**Link-state broadcast:** Causes all nodes to have an identical and complete view of the network. Each node then runs the LS algorthim and computes set of least cost paths to every other node.
+
+*Dijkstra's algorthim:* Visits the unvisted node with the smallest path cost until the shortest path is found. 
+
+![](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
+
+---
  
+ ![](http://www.dcs.bbk.ac.uk/~ptw/teaching/IWT/network-layer/abstract-graph-model.gif)
+ 
+ ![](http://www.networkinginfoblog.com/contentsimages/Running%20the%20link-state%20algorithm%20on%20the%20network.JPG)
+ 
+ * *D(v):* Cost of the least-cost path from the source node to destination *v* so far
+ * *p(v):* Previous node (neighbor of *v*) along the current least-cost path
+ * *N':* Set of vistited nodes 
  
  
  
