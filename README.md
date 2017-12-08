@@ -122,8 +122,7 @@ In practice the range can be determined from the sequence number in the packet's
 
 *Switching via a Bus:* Input ports foward the packets without the routing processor. This is done by the input port pre-pepending a label onto the packet. All outgoing packets receive the packet but only the one with the matching label keeps it. The outgoing port removes the label. Only one packet can cross the bus at once.
 
-*Switching via an Interconnection Network:* 
-
+*Switching via an Interconnection Network:* A *crossbar switch* consists of *2N* buses to *N* input ports and *N* output ports. The vertical buses intersect the horizontal buses at a *crosspoint*, which can be opened or closed. When a packet needs to forwarded the relevant *crosspoint* closes, so only the correct ouput port recieves the packet. The *crossbar switch* is **non-blocking**, so more than one port can recieve a packet at a time. However, only 1 packet can be sent over a given bus, meaning that if diffrent input ports want to send a packet to the same output port then the others will have to wait while one gets sent.
 
 **forwarding:** Maps packet from input link to output link using forwarding table
 
