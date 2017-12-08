@@ -353,6 +353,50 @@ layer 2 protocols as well, since layer 3 devices require the services of layer 2
 * In the transport-layer
 * Contains port number and data
 
+# Problems
 
+1. Compare and contrast multitasking by per-Client process with multitasking using per-Client thread for web applications.  Describe how each of these methods works, and what are the advantages and disadvantages of each. 
+
+*Multi-processing:* Each client gets forked a child. The parent mostly handles creating connections and forking children. The work for the indivdual child is done in the child process. Resources are not shared. The parent process must also stop zombie children from occuring. 
+* Expensive, the entire state of the child is duplicated in the child
+
+*Threading:* 
+* Allows multitasking within the same process
+* Better resource sharing
+
+2. Suppose a TCP message that contains 1024 bytes of data and 20 bytes of TCP header is passed to IP for delivery across two networks interconnected by a router.  The first network has an MTU (Maximum transmission unit) of 1024 bytes; the second has an MTU of 576 bytes.  Each network’s MTU gives the size of the largest IP datagram that can be carried in a link-layer frame.  Give the sizes and offsets of the sequence of fragments delivered to the network layer at the destination host.  Assume all IP headers are 20 bytes. 
+
+
+Consider the first network. An MTU of 1024 means that is the largest IP datagram
+that can be carried, so a datagram has room for 1024 − 20 = 1004 bytes
+of IP-level data; because 1004 is not a multiple of 8, each fragment can contain
+at most 8 × ⌊1004/8⌋ = 1000 bytes. We need to transfer 1024 + 20 = 1044
+bytes of data when the TCP header is included. This would be fragmented into
+fragments of size 1000, and 44.
+Over the second network the 44-byte packet would be unfragmented but the
+1000-data-byte packet would be fragmented as follows. The 576-byte MTU allows
+for up to 576−20 = 556 bytes of payload, so rounding down to a multiple
+of 8 again allows for 552 byes in the first fragment with the remaining 448 in the
+second fragment.
+
+3. The following problems concern the measurement of network performance.
+	1. How long is a bit in copper wire, where the speed of propagation is 2.3 x 10^8 m/s 
+	
+	* The length in the wire of such a bit is .1 ns × 2.3 × 10^8 m/sec = 0.023 m or 23mm. 
+
+	2. Suppose a 10-Gbps point-to-point link is being set up between the Earth and a new lunar colony.  The distance from the moon to the Earth is approximately 385,000 km, and the data travels over the link at the speed of light---3 x 10^8 m/s.  Calculate the minimum round-trip-time (RTT) for the link.
+	* (385,000km∗100,000m/km)/ 3∗10^8m/s = 128.333
+	* So the minimum RTT is 128.333 ∗ 2 = 256.666s
+
+	3. Using the RTT as the delay, calculate the delay x bandwidth product for the link.
+	*  Delay x Bandwidth = 2.57 sec x 10000 Mbits/sec
+		       = 25.7 Gbits
+    4. A camera on the lunar base takes pictures of the Earth and saves them in digital format to a disk.  Suppose Mission Control on Earth wishes to download the most current image, which is 40 MB.  What is the minimum amount of time that will elapse between when the request for the data goes out and the transfer is finished? 
+    * = 40MB/10000Mbps 
+	* = (40 x 8 Mbits) / 10000Mbps 
+	* = 320Mbits / 10000 Mbits/sec 
+	* = 0.032 sec to finish sending, 
+
+for a total time of 2.4 + 2.57 = 4.97 sec until the last picture bit arrives on earth.
 
 
