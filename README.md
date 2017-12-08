@@ -57,6 +57,14 @@ Runs as a background process that requires no interaction with a user. Typically
 
 **UDP:** multiplexing/demultiplexing
 
+## Principles of Reliable Data Transfer
+
+**End-to-end principle:** States that certian functionality (such as error detection) must be implemented on the host end systems. Having these functions at lower levels becomes redundant and may force unneeded functionality on certian applications
+
+**Maximum segment size:** The maximum amount of data that can be grabbed and placed into a segment
+
+**Maximum transmission unit (MTU):** The largest link frame that can be sent by the local sending host 
+
 ## Reliable Data Transfer Protocol
 
 ### Go-Back-N (GBN):
@@ -326,3 +334,25 @@ layer 2 protocols as well, since layer 3 devices require the services of layer 2
 * Store-and-forward packet switches
 
 ![](https://image.slidesharecdn.com/ethernetvietnguyen-150404074840-conversion-gate01/95/ethernet-networking-presentation-20-638.jpg?cb=1428151802)
+
+## Frame vs Packet vs Segment
+
+![](http://www.techtud.com/sites/default/files/public/pictures/Screenshot%20from%202014-12-05%2015%3A19%3A13.png)
+
+**Link-layer frame:** Encapsulates a datagram to send it into a link. The structure of a frame is specified by the specfic link layer protocol
+
+*Frame:*
+* In the link-layer
+* Contains source and destination MAC address
+
+*Packet:*
+* In the network-layer
+* Contains source and destination IP address
+
+*Segment:*
+* In the transport-layer
+* Contains port number and data
+
+
+
+
