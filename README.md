@@ -293,3 +293,36 @@ Even with **carrier sensing** collisions still occur because of **channel propag
 
 **Efficiency:** 1 / (1 + 5 * dProp/dTrans)
 
+## Link-Layer Switches
+
+### Switches Versus Routers
+Some packet switches, called **link-layer switches** base their forwarding decision on values in the fields of the link-layer frame; switches are thus referred to as link-layer (layer 2) devices.
+
+Other packet switches, called **routers**, base their forwarding decision on the value in the network-layer field. Routers are thus network-layer (layer 3) devices, but must also implement
+layer 2 protocols as well, since layer 3 devices require the services of layer 2 to implement their (layer 3) functionality. 
+
+*Routers:*
+* Forward packets using network-layer addresses
+* Layer 3 packet switch
+* Since network addressing is hierarchical, most packets do not cycle through routers  
+* Since packets are not restricted to a spanning tree, it can choose past path between source and destination
+* Provide firewall protection agianst layer-2 broadcast storms
+* Not plug-and-play, connected hosts need to to have IP addresses configured
+* Longer packet processing times since must be proccessed through layer 3 
+
+*Switches:*
+* Forward packets using MAC addresses
+* Since MAC address are flat may result in cycling
+* Restricted to a spanning tree
+* Layer 2 packet switch
+* Plug-and-play
+* High filtering and forwarding rates
+* Require large ARP tables
+* Susceptible to broadcast-storms 
+	* If one host begins to transmits endless broadcast frames, switches will forward all the frames
+ 
+
+*Both:*
+* Store-and-forward packet switches
+
+![](https://image.slidesharecdn.com/ethernetvietnguyen-150404074840-conversion-gate01/95/ethernet-networking-presentation-20-638.jpg?cb=1428151802)
