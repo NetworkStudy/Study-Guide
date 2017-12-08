@@ -249,4 +249,27 @@ The algorthim is:
 **Count-to-infinity:** Y updates cost to X and informs Z. Z in turn updates cost to X and informs Y. The loop continues for possibly many iterations. This happens because Y and Z point to each other to get to X.
 
 **Poisoned Reverse:** If a path becomes unreachable or too far tell neighbor path is infinite.
- 
+
+# Chapter 6
+## ALOHA Protocol
+
+*Assumptions:* 
+* All frames consist of *L* bits
+* Time is divided into slots of size *L/R* seconds (slot is time to transmit one frame)
+* Nodes start to transmit frames only at the beginnings of slots
+* Nodes are syncronized so each node knows when a slot begins
+* In case frames collide in a slot, then all nodes detect the collision event before the slot ends
+
+*Operation of slotted ALOHA:*
+* When node has a fresh frame it waits until the beginning of the next slot and transmits entire frame into the slot
+* In case of no collision the transmittion was a success and there is no retransmittion
+* In case of a collision the node retransmitts in the next slot with a probability between 0 and 1 until it is successful. All nodes in the collision have a seperate probability
+
+**Efficiency of a 'Slotted Multiple Access' Protocol:** Long-run fraction of successful slots/total slots
+
+**Efficiency of Slotted ALOHA:** *NP(1-p)^(N-1)*, Max is 0.37
+* N is active nodes
+* p is probability to retransmit
+* Transmittion rate then is 0.37 * R
+
+![](http://www.networkinginfoblog.com/contentsimages/Nodes%201%202%20and%203%20collide%20in%20the%20first%20slot.JPG)
