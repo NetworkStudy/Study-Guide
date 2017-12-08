@@ -202,6 +202,8 @@ Assigning IP address can be done manually by a System Administrator or
 
 This algorthim is a **centralized routing algorthim**, meaning it requires complete knowledge about the network.
 
+Worst-case complexity: O(n²) 
+
 **Link-state broadcast:** Causes all nodes to have an identical and complete view of the network. Each node then runs the LS algorthim and computes set of least cost paths to every other node.
 
 *Dijkstra's algorthim:* Visits the unvisted node with the smallest path cost until the shortest path is found. 
@@ -219,10 +221,32 @@ This algorthim is a **centralized routing algorthim**, meaning it requires compl
  * *N':* Set of vistited nodes 
  
  
+## Distance-Vector (DV) Routing Algorithm
+
+Each router knows its own address and
+the cost to reach each of its directly connected neighbors.
+
+The algorthim is:
+
+* *Distributed:* Nodes receive information from one or more of its *directly-attached* neighbors, perform calculations, and then distribute the info back to its neighbors. 
+* *Iterative:* The prior process continues until no more information is passed between neighbors.
+* *Asynchronous:* Nodes are not required to operate in step with each other.
  
+ **Bellman-Ford equation:** *dₓ(y) = minᵥ{c(x,v) + dᵥ(y)}*  
  
+ * *dₓ(y)*: Cost of the least-cost path from node *x* to node *y*
+ * *minᵥ:* Equation taken over all of x's neighbors
+ * *c(x,v):* Cost of x to directly attached neighbor v
+ * *dᵥ(y):*  Distance vectors for each of its neighbors for each neighbor v of x
+
  
+ ![](http://www.networkinginfoblog.com/contentsimages/Distance-vector%20algorithm.JPG)
  
+ ### Link Cost Change and Link Failure  
  
+ **Routing-Loop:** Example, Y routes to X through Z. Z in turn routes to X through Y. 
  
+**Count-to-infinity:** Y updates cost to X and informs Z. Z in turn updates cost to X and informs Y. The loop continues for possibly many iterations. This happens because Y and Z point to each other to get to X.
+
+**Poisoned Reverse:** If a path becomes unreachable or too far tell neighbor path is infinite.
  
