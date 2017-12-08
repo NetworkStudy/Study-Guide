@@ -273,3 +273,23 @@ The algorthim is:
 * Transmittion rate then is 0.37 * R
 
 ![](http://www.networkinginfoblog.com/contentsimages/Nodes%201%202%20and%203%20collide%20in%20the%20first%20slot.JPG)
+
+## Carrier Sense Multiple Access (CSMA)
+
+**Carrier Sensing:** Node listens for other nodes transmitting and waits until no others are transmitting
+
+**Collision Detection:** Transmitting node litens to channel while transmitting. If another starts transmitting stop for a random amount of time and then go into carrier sensing.
+
+Even with **carrier sensing** collisions still occur because of **channel propagation delay**, that is even though node B could be currently transmitting bits node D may not detect them before it begins to transmitt.
+
+*Operation:* 
+* Adapter obtains a datagram, prepares a link-layer frame, and puts the frame adapter buffer
+* If channel is idle start transmittion of frame, if not wait until it is
+* While transmitting watch channel for signal energy 
+* If the adapter has transmitted the entire frame it is finished. If instead it senses signal energy abort transmission
+* After abortion wait a random amount of time and return to step 2
+
+**Binary Expontional Backoff:** At a collision a node chooses *K* value at random from {0,1...2ⁿ-1}, with n being the number of collisions of the node's current frame
+
+**Efficiency:** 1 / (1 + 5 * dProp/dTrans)
+
